@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello</title>
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+            document.querySelector('form').onsubmit = function() {
+                const val = document.querySelector('#name').value;
+                alert(`The name that you write it down is ${val}`);
+            }
+        });
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <h1>Hola</h1>
+    <form>
+        <input id="name" placeholder="Name" type="text">
+        <input type="submit">
+    </form>
+</body>
+</html>

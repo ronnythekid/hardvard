@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Colors</title>
+        <script>
+
+            //Dropdown case. Change the h1 text color when the user selects an obtion 
+
+            document.addEventListener('DOMContentLoaded', () => {
+                
+                document.querySelector('select').onchange = function() {
+                    document.querySelector('#look').style.color = this.value;
+                }
+            });
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <h1 id="look">Look at me</h1>
+        <select>
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="blue">Blue</option>
+        </select>
+    </body>
+</html>
