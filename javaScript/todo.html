@@ -1,17 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <title>Todo app</title>
 
         <script>
 
             document.addEventListener('DOMContentLoaded', function() {
-                document.querySelector('#enter').onsubmit = function() {
-                    let elem = document.createElement('li')
-                    const test = document.querySelector('#task').value;
-                    elem.append(test);
+                //By default, the submit button must be disabled.
+                document.querySelector('#submitButton').disabled = true;
 
-                    document.querySelector('#tasks').append(elem)
+                //I do something when the user types something. 
+                document.querySelector('#task').onkeyup = function() {
+                    //If the input field has some value, disabled = false
+                    //else the input field has not a value, disabled = true
+                     if (document.querySelector('#task').value.length > 0) {
+                        document.querySelector('#submitButton').disabled = false;
+                    }
+                    else {
+                        document.querySelector('#submitButton').disabled = true;
+                    }
+                }
+
+               
+
+                document.querySelector('form').onsubmit = function() {
+                    //i get what the user has typed on the keyboard. 
+                    const test = document.querySelector('#task').value;
+                    
+                    //I create an element, assign a value, and add it to 
+                    //the html file
+                    const li = document.createElement('li')
+                    li.innerHTML = test;
+                    document.querySelector('#tasks').append(li);
+
+                    document.querySelector('#task').value = '';
+
+                    //I unsure that once the user has subbmited a value,
+                    // the submit button comes back to disabled mode = true 
+                    document.querySelector('#submitButton').disabled = true;
+
+                    //With this i order the form to stop from submitting
+                    return false;
                 }
             });
 
@@ -23,9 +52,9 @@
     <body>
         <h1>To Do App</h1>
         <ul id="tasks"></ul>
-        <form id="enter">
+        <form>
             <input type="text" id="task" placeholder="Enter text">
-            <input type="submit" id="subButton">
+            <input type="submit" id="submitButton">
         </form>
 
     </body>
