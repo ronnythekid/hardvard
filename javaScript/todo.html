@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Todo app</title>
+
+        <script>
+
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelector('#enter').onsubmit = function() {
+                    let elem = document.createElement('li')
+                    const test = document.querySelector('#task').value;
+                    elem.append(test);
+
+                    document.querySelector('#tasks').append(elem)
+                }
+            });
+
+        </script>
+
+
+
+    </head>
+    <body>
+        <h1>To Do App</h1>
+        <ul id="tasks"></ul>
+        <form id="enter">
+            <input type="text" id="task" placeholder="Enter text">
+            <input type="submit" id="subButton">
+        </form>
+
+    </body>
+</html>
