@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Animate</title>
+
+        <style>
+
+            @keyframes dinamic {
+                0% {
+                    left: 0%;
+                }
+                75% {
+                    left: 75%;
+                }
+                100% {
+                    left: 0%;
+                }
+            }
+
+
+            h1 {
+                position: relative;
+                animation-name: dinamic;
+                animation-duration: 2s;
+                animation-direction: forward;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to my House</h1>
+        </div>
+    </body>
+</html>
