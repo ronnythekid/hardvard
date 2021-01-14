@@ -22,7 +22,12 @@
             //Ensure that the DOM is loaded
             document.addEventListener('DOMContentLoaded', function() {
                 //I have to know when someone has pressed a button.
-            })
+                document.querySelectorAll('button').forEach(button => {
+                    button.onclick = function() {
+                       showPage(this.dataset.page);
+                    }
+                });
+            });
 
          </script>
     </head>  
