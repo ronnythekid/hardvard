@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Scroll</title>
+
+
+        <script>
+            //Add one paragraph
+            function addParagraph(text) {
+                let p = document.createElement('p');
+                    p.innerHTML = text
+                    document.querySelector('body').appendChild(p);
+            }
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                //add 100 paragraphs
+                const number = 100;
+                let i;
+                for(i = 0; i < number; i++) {
+                    addParagraph(i);
+                }
+
+                window.onscroll= () => {
+                    //If the user has reached the end of the webpage, then
+                    //change the background color to pink
+                    if(window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                        document.querySelector('body').style.background = 'pink';
+                    }
+                    //The background is black while the user has not reached the end of the page
+                    else {
+                        document.querySelector('body').style.background = 'black';
+                    }
+
+                }
+            });
+            
+        </script>
+    </head>
+    <body>
+    
+    </body>
+</html>
