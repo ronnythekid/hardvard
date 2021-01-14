@@ -23,13 +23,36 @@
                 animation-name: dinamic;
                 animation-duration: 2s;
                 animation-direction: forward;
+                /* Indecates how many times the animation should be repeated */
+                animation-iteration-count: infinite;
             }
         </style>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () =>{
+                //Pause the h1 animation 
+                document.querySelector('h1').style.animationPlayState = 'paused';
+
+                document.querySelector('button').onclick = ()=>{
+                    // If the animation of the title is paused. i must 
+                    // assign a new value. 
+                    if (document.querySelector('h1').style.animationPlayState === 'paused') {
+                        document.querySelector('h1').style.animationPlayState = 'running'
+                    }
+                    else {
+                        //If the animation of the h1 is already paused. 
+                        //I must change it to running.  
+                        document.querySelector('h1').style.animationPlayState = 'paused'
+                    }
+                }
+            });
+        </script>
 
     </head>
     <body>
         <div>
             <h1>Welcome to my House</h1>
         </div>
+        <button>animate/stop</button>
     </body>
 </html>
