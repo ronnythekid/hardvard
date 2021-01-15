@@ -14,12 +14,24 @@
         <div id="app"></div>
         <script type="text/babel">
 
+            //Second Component 
+            class Hello extends React.Component {
+                render() {
+                    return (
+                        <h1>Eat fish & chips {this.props.name}</h1>
+                    );     
+                }
+            }
+
+
+            //This is the first Component
             class App extends React.Component {
                 render() {
                     return(
                         <div>
-                            <h1>Welcome to my house</h1>
-                        Hello Bro
+                            <Hello name="Elizabeth"/>
+                            <Hello name="Ruben"/>
+                            <Hello name="Ronny"/>
                         </div>
                     );
                 }
