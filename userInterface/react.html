@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>React Test</title>
+        <!-- Add Rect stuff in order for this to work -->
+        <!-- React -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <!-- React DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Bable -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script type="text/babel">
+
+            class App extends React.Component {
+                render() {
+                    return(
+                        <div>
+                            <h1>Welcome to my house</h1>
+                        Hello Bro
+                        </div>
+                    );
+                }
+            }
+
+            ReactDOM.render(<App />, document.querySelector('#app'));
+
+        </script>
+    </body>
+</html>
