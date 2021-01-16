@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Addition</title>
+        <!-- Here goes the React Stuff -->
+        <!-- React -->
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <!-- React DOM -->
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <!-- Bable to translate JSX to JavaScript -->
+        <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+        <!-- Add some style to the app -->
+        <style>
+            #app {
+                text-align: center;
+                font-family: sans-serif;
+            }
+
+            #problem {
+                font-size: 72px;
+            }
+            
+            #winner {
+                font-size: 72px;
+                color: coral;
+            }
+
+        </style>
+
+
+    </head>
+    <body>
+
+        <div id="app"></div>
+
+        <script type="text/babel">
+            class App extends React.Component {
+
+                //Every single componenet has a constructor
+                constructor(props) {
+                    super(props);
+                    this.state = {
+                        num1: 100,
+                        num2: 20,
+                        response: "", 
+                        score: 0
+                    };
+                }
+
+
+
+                render() {
+
+                    //If User reaches to score 10 him or her wins the game
+                    if (this.state.score === 10) {
+                        return (
+                            <div id="winner">You won Bro!</div>
+                        );
+                            
+                    }
+
+
+
+                    return (
+                        <div>
+                            <div id="problem">{this.state.num1} + {this.state.num2}</div>
+                            <input onKeyPress={this.inputKeyPress} onChange={this.updateResponse} value={this.state.response}/>
+                            <h1>Score : {this.state.score}</h1>
+                        </div>
+                    );  
+                }
+
+                //This function is able to act when the 'Enter' key is pressed
+                inputKeyPress = (event) => {
+                    if(event.key === 'Enter') {
+                        const answer = parseInt(this.state.response);
+                        if (answer === this.state.num1 + this.state.num2) {
+                            //Correct answer, add 1 point to the score
+                            this.setState(state =>({
+                                score: state.score + 1,
+                                //I get a random number between 0 and 1
+                                //Math.ceil round the random number to be an int
+                                num1 : Math.ceil(Math.random() * 10),
+                                num2 : Math.ceil(Math.random() * 10),
+                                response: ""
+
+                            }));
+
+                        }
+                        else {
+                            //User got question wrong
+                            //If wrong, user lose one point.
+                            this.setState(state =>({
+                                score: state.score -1,
+                                response: ""
+                            }));
+                        }
+                    }
+                }
+
+                //This function update the response value that is saved in the state.
+                //When the user typed something the value is assign to response state. 
+                updateResponse = (event) => {
+                    this.setState({
+                        response : event.target.value
+                    });
+                }
+
+            }
+            //The componene App should be rendered in an element that has an #app as id.
+            ReactDOM.render(<App />, document.querySelector('#app'));
+
+        </script>
+        
+    </body>
+
+</html>
